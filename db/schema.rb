@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_161255) do
+ActiveRecord::Schema.define(version: 2021_10_08_163426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "costumes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "votes"
+    t.string "image"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_costumes_on_user_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "image"
+    t.string "city"
+    t.string "state"
+    t.string "street"
+    t.string "zip"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_houses_on_user_id"
+  end
 
   create_table "memes", force: :cascade do |t|
     t.string "image"
@@ -58,4 +81,17 @@ ActiveRecord::Schema.define(version: 2021_10_06_161255) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.bigint "house_id", null: false
+    t.bigint "costume_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["costume_id"], name: "index_visits_on_costume_id"
+    t.index ["house_id"], name: "index_visits_on_house_id"
+  end
+
+  add_foreign_key "costumes", "users"
+  add_foreign_key "houses", "users"
+  add_foreign_key "visits", "costumes"
+  add_foreign_key "visits", "houses"
 end
