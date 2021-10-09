@@ -48,6 +48,16 @@ export const AuthProvider = (props) => {
       history.push("/login");
   };
 
+  const setHouse = async () => {
+    try{
+      let res = await axios.put(`/api/users/${user.id}`, {...user, house:true})
+      console.log(res.data)
+      setUser(res.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
 
 
   return (
@@ -59,6 +69,7 @@ export const AuthProvider = (props) => {
       handleLogin,
       handleLogout,
       setUser,
+      setHouse,
       authenticated: user ? true : false,
     }}
     >

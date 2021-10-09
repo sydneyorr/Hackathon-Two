@@ -40,10 +40,6 @@ y = x.houses.create(
   state:"Utah"
 )
 Visit.create(house_id: y.id, costume_id: mc.id)
-<<<<<<< HEAD
-end
-=======
 end
 
  
->>>>>>> c01622f9bacbae44d7a833fa967b5d8dd90fc774
