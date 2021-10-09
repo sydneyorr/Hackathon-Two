@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, CardContent, Grid, GridColumn, Icon, Image } from 'semantic-ui-react'
 
 const Houses = () => {
 const [houses, setHouses] = useState([]);
@@ -48,9 +48,24 @@ const renderHouses = () => {
   return (
     <div>
       <h1>House Home</h1>
+      <Card.Group itemsPerRow = {3}>
       {renderHouses()}
+      </Card.Group>
     </div>
   );
 };
 
 export default Houses;
+
+{/* <Grid>
+<Grid.Row columns={3}>
+  <Grid.Column>
+    <Image src='/images/wireframe/image.png' />
+  </Grid.Column>
+  <Grid.Column>
+    <Image src='/images/wireframe/image.png' />
+  </Grid.Column>
+  <Grid.Column>
+    <Image src='/images/wireframe/image.png' />
+  </Grid.Column>
+</Grid.Row> */}
