@@ -11,6 +11,27 @@ const MyCostume = () => {
     getMyCostume();
   }, []);
 
+  const renderCostumes = () => {
+    return myCostume.map((c) => {
+
+     return(
+      <Card>
+      <Card.Header>
+        {user.name}
+        </Card.Header>
+        <Card.Meta>
+          {c.title}
+          </Card.Meta>
+      <div>
+        <Image src={c.image} />
+        <Card.Header>{c.title}</Card.Header>
+        <Card.Meta>Votes: {c.votes}</Card.Meta> 
+      </div>
+    </Card>
+     )
+    })
+  }
+
   const getMyCostume = async () => {
     try{ 
       let res = await axios.get(`/api/users/${user.id}/costumes/`)
@@ -23,19 +44,9 @@ const MyCostume = () => {
 
   // console.log("costume", costume)
   return (
-    <Card>
-      <Card.Header>
-        {user.name}
-        </Card.Header>
-        <Card.Meta>
-          {myCostume.title}
-          </Card.Meta>
-      <div>
-        <Image src={myCostume.image} />
-        <Card.Header>{myCostume.title}</Card.Header>
-        <Card.Meta>Votes: {myCostume.votes}</Card.Meta> 
-      </div>
-    </Card>
+    <div>
+      {renderCostumes()}
+    </div>
   );
 
 };

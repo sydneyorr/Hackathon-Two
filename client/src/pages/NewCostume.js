@@ -1,20 +1,22 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Button, Form } from "semantic-ui-react";
+import { AuthContext } from "../providers/AuthProvider";
 
-const CostumeForm = (props) => {
+const NewCostume = (props) => {
   const {costume} = props;
-
+  const {user} = useContext(AuthContext);
   const [title, setTitle] = useState('');
-  const [ima, setIma] = useState('');
+  const [image, setImage] = useState('');
   
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
-      axios.post(`/api/user/costume`, { title: title, image: image })
+      axios.post(`/api/users/${user.id}/costumes`, { title: title, image: image, user_id: user.id})
       
       setTitle('');
-      setIma('');
+      setImage('');
     } catch (error) {
       console.log(error)
     }
@@ -28,19 +30,19 @@ const CostumeForm = (props) => {
     <div>
       <h1>Add yo Costume!</h1>
 
-      <form onSubmit={submitHandler}>
+      <Form onSubmit={submitHandler}>
         <p>
           <div>Title:</div>
-          <input value={title} onChange={e => setTitle(e.target.value)} />
+          <Form.Input value={title} onChange={e => setTitle(e.target.value)} />
         </p>
 
         <p>
           <div>Image:</div>
-          <input type="file" onChange={handleFile}/>
+          <Form.Input value={image} onChange={e => setImage(e.target.value)} />
         </p>
 
-        <button>Get Spooky!</button>
-      </form>
+        <Button>Get Spooky!</Button>
+      </Form>
     </div>
   );
 };

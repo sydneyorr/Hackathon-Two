@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button } from 'semantic-ui-react';
 import Housepage from '../pages/Housepage';
 import MyCostume from '../pages/MyCostume';
+import NewCostume from '../pages/NewCostume';
 import { AuthContext } from '../providers/AuthProvider';
 import NewHouse from './House Components/NewHouse';
 
@@ -9,8 +10,9 @@ const Home = () => {
   const { user } = useContext(AuthContext)
   // const [myHouse, setMyHouse] = useState()
   // const [myCostume, setMyCostume] = useState()
+
+  const [showForm1, setShowForm1] = useState(false)
   const [showForm, setShowForm] = useState(false)
-  
   const renderSomething = () => {
     if (user.house && user.costume){
       return (
@@ -59,6 +61,8 @@ const Home = () => {
       {renderSomething()}
       <Button onClick={()=> setShowForm(!showForm)}>Add House</Button>
       {showForm && <NewHouse user = {user}/>}
+      <Button onClick={()=> setShowForm1(!showForm1)}>Add Costume</Button>
+      {showForm1 && <NewCostume user = {user}/>}
     </div>
   );
 };
