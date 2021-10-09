@@ -1,9 +1,10 @@
   import axios from "axios";
   import Costume from "./costume";
-  import React, { useState, useEffect } from "react";
+  import React, { useState, useEffect, useContext, AuthContext } from "react";
 
   const Costumes = () => {
-  useEffect (() => {
+    const {user}=useContext( AuthContext )
+    useEffect (() => {
     getCostumes();
   }, []);
 
@@ -11,7 +12,7 @@
 
   const getCostumes = async () => {
     try{
-      let res = await axios.get("/api/costume");
+      let res = await axios.get(`/api/users/${user.id}/costume`);
       setCostumes(res.data);
       console.log(res.data);
       } catch (error) {
@@ -22,7 +23,7 @@
 
   const deleteCostumes = async (id) => {
     try {
-      await axios.delete(`/api/users/costume/${id}`);
+      await axios.delete(`/api/users/${user.id}/costume/${id}`);
       setCostumes(costumes.filter);
     } catch (error) {
       console.log(error);
