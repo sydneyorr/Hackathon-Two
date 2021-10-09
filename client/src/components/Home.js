@@ -60,9 +60,9 @@ const Home = () => {
       <h1>Home</h1>
       {renderSomething()}
       <Button onClick={()=> setShowForm(!showForm)}>Add House</Button>
-      {showForm && <NewHouse user = {user}/>}
+      {showForm && <NewHouse user = {user} setShowForm={setShowForm} showForm={showForm}/>}
       <Button onClick={()=> setShowForm1(!showForm1)}>Add Costume</Button>
-      {showForm1 && <NewCostume user = {user}/>}
+      {showForm1 && <NewCostume user = {user} setShowForm1={setShowForm1} showForm1={showForm1}/>}
     </div>
   );
 };

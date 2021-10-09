@@ -3,7 +3,7 @@ class Api::CostumesController < ApplicationController
   before_action :set_costume, only: [:show, :destroy, :update]
     
   def index
-    render json: @user.costumes.all[0]
+    render json: @user.costumes.all
   end
 
   def all

@@ -44,7 +44,7 @@ const MyCostume = () => {
   // console.log("costume", costume)
   return (
     <div>
-      {renderCostumes()}
+      {myCostume && renderCostumes()}
     </div>
   );
 

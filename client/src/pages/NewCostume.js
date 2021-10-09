@@ -1,22 +1,22 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Card } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 
-const NewCostume = (props) => {
-  const {costume} = props;
+const NewCostume = ({showForm1, setShowForm1}) => {
   const {user} = useContext(AuthContext);
   const [title, setTitle] = useState('');
   const [image, setImage] = useState('');
   
   const submitHandler = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     try {
       axios.post(`/api/users/${user.id}/costumes`, { title: title, image: image, user_id: user.id})
       
       setTitle('');
       setImage('');
+      setShowForm1(!showForm1);
     } catch (error) {
       console.log(error)
     }
@@ -28,6 +28,7 @@ const NewCostume = (props) => {
 
   return (
     <div>
+       <Card fluid style={{margin:"66px", padding: "66px"}}>
       <h1>Add yo Costume!</h1>
 
       <Form onSubmit={submitHandler}>
@@ -43,6 +44,7 @@ const NewCostume = (props) => {
 
         <Button>Get Spooky!</Button>
       </Form>
+      </Card>
     </div>
   );
 };
