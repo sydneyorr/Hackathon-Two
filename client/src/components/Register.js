@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { Button, Form } from "semantic-ui-react"
+import { Button, Form, Checkbox } from "semantic-ui-react"
 import { AuthContext } from "../providers/AuthProvider"
 import SemanticLoadError from "./SemanticLoadError"
 
@@ -11,6 +11,11 @@ const Register = () => {
   const [name, setName] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
   const { handleRegister, error, setError } = useContext(AuthContext);
+
+
+  const handleCheckbox = () => {
+
+  }
 
   const handleSubmit = (e) => {
     if (password !== passwordConfirmation) {
@@ -52,6 +57,19 @@ const Register = () => {
           setPasswordConfirmation(value);
         }}
         label={"Password Confirmation"} />
+        <Form.Field>
+          <h3> Are you going trick-or-treating? </h3>
+          <Checkbox
+          style={{margin:"6px"}}
+          label = "I a trick-or-treater!"
+          onClick={handleCheckbox}
+        />
+          <Checkbox
+          style={{margin:"6px"}}
+          label = "I will be passing out treats."
+          onClick={handleCheckbox}
+        />
+        </Form.Field>
         <Button>Create Account</Button>
       </Form>
     </div>
