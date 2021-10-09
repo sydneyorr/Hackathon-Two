@@ -32,7 +32,6 @@ const MyCostume = () => {
           </Card.Meta>
       <div>
         <Image src={myCostume.image} />
-        <Card.Header>{myCostume.title}</Card.Header>
         <Card.Meta>Votes: {myCostume.votes}</Card.Meta> 
       </div>
     </Card>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Card } from 'semantic-ui-react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const NewHouse = () => {
@@ -26,6 +26,7 @@ const NewHouse = () => {
 
   return (
     <div>
+       <Card fluid style={{margin:"66px", padding: "66px"}}>
    <Form onSubmit={()=>handleSubmit()}>
     <Form.Field>
       <label>City</label>
@@ -50,6 +51,7 @@ const NewHouse = () => {
 
     <Button type='submit'>Submit</Button>
   </Form>
+  </Card>
     </div>
   );
 };

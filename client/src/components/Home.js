@@ -16,13 +16,13 @@ const Home = () => {
       return (
         <div>
           <div>
-            <p>My House</p>
+            <h3>My House</h3>
             <Housepage user = {user} 
             // house={myHouse}
             />
           </div>
           <div>
-            <p>My Costume</p>
+            <h3>My Costume</h3>
             <MyCostume 
             // costume={myCostume} 
             />
@@ -33,7 +33,7 @@ const Home = () => {
     if (user.costume) {
       return (
         <div>
-          <p>My Costume</p>
+          <h3>My Costume</h3>
           <MyCostume 
           // costume={myCostume} 
           />
@@ -43,7 +43,7 @@ const Home = () => {
     if (user.house) {
       return (
         <div>
-          <p>My House</p>
+          <h3>My House</h3>
           <Housepage user = {user} 
           // house={myHouse}
           />
