@@ -1,10 +1,12 @@
   import axios from "axios";
-  import Costume from "./costume";
-  import React, { useState, useEffect, useContext, AuthContext } from "react";
+  import Costume from "../components/Costume";
+  import React, { useState, useEffect, useContext } from "react";
+  import { AuthContext } from "../providers/AuthProvider";
+import { Card } from "semantic-ui-react";
 
-  const Costumes = () => {
+  const CostumesLead = () => {
     const {user}=useContext( AuthContext )
-    useEffect (() => {
+    useEffect(() => {
     getCostumes();
   }, []);
 
@@ -12,9 +14,9 @@
 
   const getCostumes = async () => {
     try{
-      let res = await axios.get(`/api/users/${user.id}/costume`);
+      let res = await axios.get(`/api/costumes/all`);
       setCostumes(res.data);
-      console.log(res.data);
+      console.log('coustme', res.data);
       } catch (error) {
         console.log(error)
         alert("error")
@@ -23,7 +25,7 @@
 
   const deleteCostumes = async (id) => {
     try {
-      await axios.delete(`/api/users/${user.id}/costume/${id}`);
+      await axios.delete(`/api/users/${user.id}/costumes/${id}`);
       setCostumes(costumes.filter);
     } catch (error) {
       console.log(error);
@@ -31,10 +33,9 @@
   };
 
   const renderCostumes = () => {
-    return costumes.map( costumes => {
+    return costumes.map( costume => {
       return (
-        <div key={costume.id}>
-        </div>
+        <Costume costume={costume}/>
       )
     })
   };
@@ -42,9 +43,10 @@
     return (
 
     <div>
+      <h1> Costumes! </h1>
         {renderCostumes()}
     </div>
   );
 };
 
-export default CustomesLead;
+export default CostumesLead;

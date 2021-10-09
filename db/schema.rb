@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_10_08_164409) do
   create_table "costumes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "votes"
+    t.integer "votes", default: 0
     t.string "image"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
