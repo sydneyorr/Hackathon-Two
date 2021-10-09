@@ -38,7 +38,7 @@ class Api::CostumesController < ApplicationController
     params.require(:costume).permit(:title, :description, :votes, :image, :user_id)
   end
   
-  def set_thing
+  def set_costume
     @costume = Costume.find(params[:id])
   end
   

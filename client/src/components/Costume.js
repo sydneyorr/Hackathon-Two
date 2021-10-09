@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Image } from 'semantic-ui-react';
+import Vote from "./Vote";
 
 const Costume = ({ costume }) => {
   return (
@@ -9,6 +10,9 @@ const Costume = ({ costume }) => {
         <Card.Header>{costume.title}</Card.Header>
         <Card.Meta>Votes: {costume.votes}</Card.Meta> 
       </div>
+      <Card.Content extra>
+        <Vote costume={costume}/>
+      </Card.Content>
     </Card>
   );
 

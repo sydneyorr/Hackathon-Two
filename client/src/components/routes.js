@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import CostumesLead from "../pages/CostumesLead"
 import { AuthContext } from "../providers/AuthProvider";
 import Home from "./Home";
+import Houses from "./House Components/Houses";
 import Login from "./Login";
 import NoMatch from "./NoMatch";
 import Register from "./Register";

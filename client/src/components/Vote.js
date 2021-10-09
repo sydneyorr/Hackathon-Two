@@ -1,21 +1,19 @@
 import axios from "axios";
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import { Button } from "semantic-ui-react"
+import { AuthContext } from "../providers/AuthProvider";
 import Costume from "./Costume"
 
 
-// const LikesReducer = ({u, p}) => {
 
-const Vote = () => {
+const Vote = ({costume}) => {
+  const {user} = useContext(AuthContext)
 
   const saveVotes = async () => {
     try{
-    let res = await axios.put(`/api/users/${u.id}/costumes/${costume.id}`, {
-      user_id: u.id,
-      text: p.text,
-      image: p.image,
-      mood: p.mood,
-      votes: likes + 1
+    let res = await axios.put(`/api/users/${costume.user_id}/costumes/${costume.id}`, {
+      user_id: costume.user_id,
+      votes: votes + 1
     });
     console.log("HERE IS RES", res)
     } catch (err) {
@@ -23,41 +21,26 @@ const Vote = () => {
     }
   }
   
-    const likeSave = (e) =>
+    const voteSave = () =>
     {dispatch("add");
-    saveLikes(likes)}
+    saveVotes(votes)}
   
-    const [likes, dispatch] = useReducer((state, action) => {
+    const [votes, dispatch] = useReducer((state, action) => {
       switch (action) {
         case "add":
           return state + 1;
       }
-    }, p.likes);
+    }, costume.votes);
   
     return (
       <p>
-        {likes}
+        {votes}
         <i class="heart icon"
-         onClick={() => {likeSave()}}/>
+         onClick={() => {voteSave()}}/>
       </p>
     );
   };
 
-return (
-  <div>
-  <Costume />
-  <Button>
-
-  </Button>
-  <Button>
-
-  </Button>
-  <Button>
-
-  </Button>
-  </div>
-)
-}
 
 export default Vote
 
