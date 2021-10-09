@@ -16,10 +16,9 @@ const SplitRoutes = () => {
   if(user){
     let routes = []
     if(user.house){
-      routes.push({ pathname: "/myHouse", title: "My House", component: Housepage}) 
+      routes.push({ pathname: "/", title: "My House", component: Housepage}) 
     }
     if(user.costume){
-      routes.push({ pathname: "/costumes", title: "Costume", component: CostumesLead})
     }
     // console.log('routes',routes)
     return routes
