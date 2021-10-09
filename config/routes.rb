@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     put "/users/:id", to: "users#update"
     resources :houses
 
-    resources :things
+  resources :things
     resources :visits
      resources :users do
       resources :costumes
