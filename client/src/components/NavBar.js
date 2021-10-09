@@ -5,6 +5,7 @@ import { Menu } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css'
 import { AuthConsumer, AuthContext } from "../providers/AuthProvider";
 import SplitRoutes from "./routes";
+import Home from "./Home";
 
 const NavBar = (props) => {
   let routes = SplitRoutes()
@@ -46,6 +47,9 @@ const NavBar = (props) => {
 
     return (
     <Menu>
+      <Link to={'/'}>
+        <Menu.Item >Home</Menu.Item>
+      </Link>
     {routes && renderRoutes()}
     <Menu.Menu position="right">{RightNavItems() }</Menu.Menu>
     </Menu>
