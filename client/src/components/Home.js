@@ -63,7 +63,7 @@ export default function Home() {
         <button type="submit">add</button>
       </form>
       <Image src={url} />
-      <JustImageUpload />
+      {/* <JustImageUpload /> */}
     </div>
   );
 }
