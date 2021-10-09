@@ -26,7 +26,7 @@ const renderRoutes = () => {
 
   return (
     <>
-      <FetchUser>
+    <FetchUser>
       <NavBar />
         <Container>
           <Switch>
