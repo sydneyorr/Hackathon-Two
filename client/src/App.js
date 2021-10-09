@@ -10,6 +10,8 @@ import Login from "./components/Login";
 import FetchUser from "./components/FetchUser";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/Home";
+import ImageUpload from "./components/ImageUpload";
+import NewHouse from "./components/House Components/NewHouse";
 
 function App() {
   console.log(SplitRoutes())
@@ -34,6 +36,7 @@ const renderRoutes = () => {
             <Route exact path = '/' component={Home} />
             <Route exact path = "/register" component={Register} />
             <Route exact path = "/login" component={Login} />
+            <Route exact path = "/upload" component={NewHouse} />
             <Route component={NoMatch} />
           </Switch>
         </Container>
