@@ -15,7 +15,7 @@ const FetchUser = (props) => {
       return;
     }
     try {
-      const res = await axios.get("api/auth/validate_token");
+      const res = await axios.get("/api/auth/validate_token");
       setUser(res.data.data);
     } catch (err) {
 

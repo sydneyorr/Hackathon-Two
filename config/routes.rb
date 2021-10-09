@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # end
 
   namespace :api do
+    resources :houses
     resources :users do
       resources :houses do
         resources :visits
