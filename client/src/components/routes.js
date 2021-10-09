@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import Costume from "../pages/Costume";
+import Costume from "../components/Costume";
 import { AuthContext } from "../providers/AuthProvider";
 import Home from "./Home";
 import Login from "./Login";
