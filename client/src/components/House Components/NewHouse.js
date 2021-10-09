@@ -9,12 +9,13 @@ const NewHouse = () => {
   const [street, setStreet] = useState("")
   const [image, setImage] = useState("")
   const [zip, setZip] = useState("")
-  const {user} = useContext(AuthContext)
+  const {user, setHouse } = useContext(AuthContext)
 
   const handleSubmit = async (e) => {
     // e.preventDefault()
     try {
       let res = await axios.post("/api/houses", {city, state, street, image, zip, user_id: user.id})
+      setHouse()
       console.log("working")
       console.log(res)
     } catch (err) {

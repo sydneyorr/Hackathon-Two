@@ -1,5 +1,5 @@
 class Api::HousesController < ApplicationController
-
+  before_action :set_user, only: [:user_house]
   before_action :set_house, only: [:show, :destroy, :update]
     
   def index
@@ -9,6 +9,11 @@ class Api::HousesController < ApplicationController
   def show
     render json: @house
   end
+
+  def user_house
+    render json: @user.houses.all[0] 
+  end
+
   
   def create
     @house = House.new(house_params)
@@ -38,6 +43,11 @@ class Api::HousesController < ApplicationController
   def house_params
     params.require(:house).permit(:image, :city, :state, :street, :zip, :user_id)
   end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   
   def set_house
     @house = House.find(params[:id])

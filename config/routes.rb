@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         resources :visits
       end
     end
+    get 'costumes/all', to: 'costumes#all'
+    get 'users/:user_id/user_house/', to: 'houses#user_house'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

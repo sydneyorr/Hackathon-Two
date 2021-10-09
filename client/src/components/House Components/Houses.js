@@ -33,12 +33,6 @@ const renderHouses = () => {
             {h.street}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name='user' />
-            {h.visits}
-          </a>
-        </Card.Content>
       </Card>
       )
     })

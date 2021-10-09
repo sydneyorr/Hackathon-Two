@@ -6,7 +6,7 @@ import { Card } from "semantic-ui-react";
 
   const CostumesLead = () => {
     const {user}=useContext( AuthContext )
-    useEffect (() => {
+    useEffect(() => {
     getCostumes();
   }, []);
 
@@ -14,9 +14,9 @@ import { Card } from "semantic-ui-react";
 
   const getCostumes = async () => {
     try{
-      let res = await axios.get(`/api/users/${user.id}/costumes`);
+      let res = await axios.get(`/api/costumes/all`);
       setCostumes(res.data);
-      console.log(res.data);
+      console.log('coustme', res.data);
       } catch (error) {
         console.log(error)
         alert("error")
