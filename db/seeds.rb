@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Visit.destroy_all
 User.destroy_all
 Costume.destroy_all
 House.destroy_all
@@ -23,6 +23,12 @@ ac = a.costumes.create(title:"Chewbacca", image:"https://cdn.shopify.com/s/files
 sc = s.costumes.create(title:"Shrek", image:"https://cdn.shoplightspeed.com/shops/626272/files/12870361/1652x2313x2/shrek-costume-boys.jpg")
 kc = k.costumes.create(title:"witch", image:"https://cdn-ssl.s7.disneystore.com/is/image/DisneyShopping/2841040738800?fmt=webp&qlt=90&wid=767&hei=767")
 
+houses = [
+  "https://s26162.pcdn.co/wp-content/uploads/2020/03/house.jpg",
+  "https://i.cbc.ca/1.5571885.1589564553!/fileImage/httpImage/image.jpeg_gen/derivatives/16x9_940/creepy-haunted-bandoned-house-in-rural-nova-scotia.jpeg",
+  "https://www.verywellmind.com/thmb/Tzmq_xazjy8d43pm8xK8KGxBOj8=/500x350/filters:no_upscale():max_bytes(150000):strip_icc()/low-angle-view-of-building-against-cloudy-sky-750507801-5bc50e0b46e0fb0058c9ef64.jpg",
+  "https://images.theconversation.com/files/100034/original/image-20151028-21095-1d2dl11.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop"
+]
 
 10.times do
 x=User.create(
@@ -33,7 +39,7 @@ x=User.create(
   password:"boo2021" 
 )
 y = x.houses.create(
-  image: "https://image.shutterstock.com/image-photo/small-clapboard-siding-house-view-260nw-182798594.jpg",
+  image: houses[rand(3)],
   street:Faker::Address.street_address, 
   city:Faker::Address.city, 
   zip:Faker::Address.zip,
@@ -41,5 +47,6 @@ y = x.houses.create(
 )
 Visit.create(house_id: y.id, costume_id: mc.id)
 end
+
 
  

@@ -46,7 +46,7 @@ const NavBar = (props) => {
   
 
     return (
-    <Menu>
+    <Menu className='ui inverted fixed menu'>
       <Link to={'/'}>
         <Menu.Item >Home</Menu.Item>
       </Link>

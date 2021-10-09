@@ -44,7 +44,9 @@ import { Card } from "semantic-ui-react";
 
     <div>
       <h1> Costumes! </h1>
+      <Card.Group itemsPerRow = {3}>
         {renderCostumes()}
+      </Card.Group>
     </div>
   );
 };

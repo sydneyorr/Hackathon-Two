@@ -7,8 +7,16 @@ const Costume = ({ costume }) => {
   
   return (
     <Card>
+      <Card.Header>
+        {costume.user}
+        </Card.Header>
+        <Card.Meta>
+          {costume.title}
+          </Card.Meta>
       <div>
-        <Image src={costume.image} />
+        <Image 
+        src={costume.image} 
+        style={{height:"400px"}}/>
         <Card.Header>{costume.title}</Card.Header>
       </div>
       <Card.Content extra>

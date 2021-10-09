@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Card } from 'semantic-ui-react';
 import { AuthContext } from '../../providers/AuthProvider';
+import ImageUpload from '../ImageUpload';
 
-const NewHouse = () => {
+const NewHouse = ({showForm, setShowForm}) => {
   const [city, setCity] = useState("")
   const [state, setState] = useState("")
   const [street, setStreet] = useState("")
@@ -18,6 +19,7 @@ const NewHouse = () => {
       setHouse()
       console.log("working")
       console.log(res)
+      setShowForm(!showForm)
     } catch (err) {
       console.log(err)
     }
@@ -26,6 +28,7 @@ const NewHouse = () => {
 
   return (
     <div>
+       <Card fluid style={{margin:"66px", padding: "66px"}}>
    <Form onSubmit={()=>handleSubmit()}>
     <Form.Field>
       <label>City</label>
@@ -44,12 +47,14 @@ const NewHouse = () => {
       <input placeholder='Zip' onChange={(e)=>setZip(e.target.value)}/>
     </Form.Field>
     <Form.Field>
-      <label>Image</label>
+      <label>Image URL</label>
       <input placeholder='Image' onChange={(e)=>setImage(e.target.value)}/>
+      <ImageUpload setImage = {setImage} />
     </Form.Field>
 
     <Button type='submit'>Submit</Button>
   </Form>
+  </Card>
     </div>
   );
 };

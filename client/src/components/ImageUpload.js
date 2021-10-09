@@ -43,15 +43,8 @@ export default function ImageUpload() {
   };
   return (
     <div>
-      <h1>Home</h1>
       <form onSubmit={handleSubmit}>
-        <p>caption</p>
-        <input
-          type="text"
-          value={caption}
-          onChange={(e) => setCaption(e.target.value)}
-        />
-        <br />
+        <p> OR upload a file </p>
         <FilePond
           files={files}
           allowMultiple={false}

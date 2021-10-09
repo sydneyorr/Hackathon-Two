@@ -14,6 +14,7 @@ import Houses from "./components/House Components/Houses";
 import CostumesLead from "./pages/CostumesLead";
 import ImageUpload from "./components/ImageUpload";
 import NewHouse from "./components/House Components/NewHouse";
+import styled from 'styled-components';
 
 function App() {
   console.log(SplitRoutes())
@@ -30,23 +31,34 @@ const renderRoutes = () => {
 
   return (
     <>
+    <MyDiv>
     <FetchUser>
       <NavBar />
         <Container>
           <Switch>
             {routes && renderRoutes()}
-            <Route exact path = '/' component={Home} />
+            <ProtectedRoute exact path = '/' component={Home} />
             <Route exact path = "/houses" component={Houses} /> 
             <Route exact path = "/costumes" component={CostumesLead} />
             <Route exact path = "/register" component={Register} />
-            <Route exact path = "/login" component={Login} />
+            <Route exact path = "/login" component={Login} />s
             <Route exact path = "/upload" component={NewHouse} />
             <Route component={NoMatch} />
           </Switch>
         </Container>
       </FetchUser>
+      </MyDiv>
     </>
   );
 }
+
+const MyDiv = styled.div`
+  background-image: url('https://cdn.gamedevmarket.net/wp-content/uploads/20200625115918/90fa4684554002bc3cdc3575b0899348.jpg');
+  height: 200vh;
+  width: 100vw;
+  background-attachment: fixed;
+  overflow: scroll;
+  color: #ED7014;
+  `
 
 export default App;

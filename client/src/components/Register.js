@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { Button, Form, Checkbox } from "semantic-ui-react"
+import { Button, Form, Checkbox, Card } from "semantic-ui-react"
 import { AuthContext } from "../providers/AuthProvider"
 import SemanticLoadError from "./SemanticLoadError"
+
 
 const Register = () => {
   const history = useHistory();
@@ -32,9 +33,10 @@ const Register = () => {
 
   return (
     <div>
+      <Card fluid style={{margin:"66px", padding: "66px"}}>
       <h1>Create an Account</h1>
       {error && <SemanticLoadError />}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} style={{textColor: "#ED7014"}}>
         <Form.Input
         value={name}
         onChange={(e, {value}) => {
@@ -62,14 +64,16 @@ const Register = () => {
           <h3> Are you going trick-or-treating? </h3>
           <Form.Field>
             <Checkbox
-        label="I am a trick-or-treater"
-        control="input"
-        type="checkbox"
-        value={house}
-        onChange={(e) => {
-          setCostume(!costume)
-        }} />
+              style={{margin:"6px"}}
+              label="I am a trick-or-treater"
+              control="input"
+              type="checkbox"
+              value={house}
+              onChange={(e) => {
+                setCostume(!costume)
+              }} />
           <Checkbox
+            style={{margin:"6px"}}
             label="I will be passing out treats"
             control="input"
             type="checkbox"
@@ -81,6 +85,7 @@ const Register = () => {
           </Form.Field>
         <Button>Create Account</Button>
       </Form>
+      </Card>
     </div>
   )
 }
