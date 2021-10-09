@@ -10,6 +10,8 @@ import Login from "./components/Login";
 import FetchUser from "./components/FetchUser";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/Home";
+import Houses from "./components/House Components/Houses";
+import CostumesLead from "./pages/CostumesLead";
 
 function App() {
   console.log(SplitRoutes())
@@ -32,6 +34,8 @@ const renderRoutes = () => {
           <Switch>
             {routes && renderRoutes()}
             <Route exact path = '/' component={Home} />
+            <Route exact path = "/houses" component={Houses} /> 
+            <Route exact path = "/costumes" component={CostumesLead} />
             <Route exact path = "/register" component={Register} />
             <Route exact path = "/login" component={Login} />
             <Route component={NoMatch} />

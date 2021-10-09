@@ -2,14 +2,14 @@
 import React from "react";
 import useAxiosOnMount from "./Hooks/useAxiosOnMount";
 import SemanticLoadError from "./SemanticLoadError";
-import SematicLoader from "./SemanticLoader";
+import SemanticLoader from "./SemanticLoader";
 
 export default function ListLoader({ url, renderData, header }) {
   console.log();
   const { data, loading, error } = useAxiosOnMount(url);
 
   const renderList = () => {
-    if (loading) return <SematicLoader />;
+    if (loading) return <SemanticLoader />;
     if (error)
       return (
         <SemanticLoadError

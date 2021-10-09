@@ -1,11 +1,13 @@
 import React, { useContext } from "react"
-import Costume from "../components/Costume";
+import CostumesLead from "../pages/CostumesLead"
 import { AuthContext } from "../providers/AuthProvider";
 import Home from "./Home";
+import Houses from "./House Components/Houses";
 import Login from "./Login";
 import NoMatch from "./NoMatch";
 import Register from "./Register";
 import Things from "./Things";
+import Housepage from "../pages/Housepage";
 
 
 const SplitRoutes = () => {
@@ -14,10 +16,10 @@ const SplitRoutes = () => {
   if(user){
     let routes = []
     if(user.house){
-      routes.push({ pathname: "/things", title: "Things", component: Things}) 
+      routes.push({ pathname: "/myHouse", title: "My House", component: Housepage}) 
     }
     if(user.costume){
-      routes.push({ pathname: "/costumes", title: "Costume", component: Costume})
+      routes.push({ pathname: "/costumes", title: "Costume", component: CostumesLead})
     }
     // console.log('routes',routes)
     return routes
