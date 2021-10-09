@@ -2,7 +2,7 @@ import React, { useContext, useReducer } from 'react';
 import Housepage from '../pages/Housepage';
 import MyCostume from '../pages/MyCostume';
 import { AuthContext } from '../providers/AuthProvider';
-// import NewHouse from './House Components/NewHouse';
+import NewHouse from './HouseComponents/NewHouse';
 
 const Home = () => {
   const { user } = useContext(AuthContext)
@@ -15,7 +15,7 @@ const Home = () => {
         <div>
           <p>My House</p>
           <Housepage user = {user}/>
-          {/* <NewHouse user = {user}/> */}
+          <NewHouse user = {user}/>
         </div>
       )
     } 
@@ -32,6 +32,7 @@ const Home = () => {
     <div>
       <h1>Home</h1>
       {renderSomething()}
+
     </div>
   );
 };
