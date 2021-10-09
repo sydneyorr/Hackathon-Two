@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { Button, Form } from "semantic-ui-react"
+import { Button, Form, Card } from "semantic-ui-react"
 import { AuthContext } from "../providers/AuthProvider"
 
 const Login = () => {
@@ -17,6 +17,7 @@ const Login = () => {
 
   return (
     <div>
+      <Card fluid style={{margin:"66px", padding: "66px"}}>
       <h1>Log in</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Input
@@ -33,6 +34,7 @@ const Login = () => {
         label={"Password"} />
         <Button>Login</Button>
       </Form>
+      </Card>
     </div>
   )
 }

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Visit.destroy_all
 User.destroy_all
 Costume.destroy_all
 House.destroy_all
@@ -33,17 +33,13 @@ x=User.create(
   password:"boo2021" 
 )
 y = x.houses.create(
-  image: "https://image.shutterstock.com/image-photo/small-clapboard-siding-house-view-260nw-182798594.jpg",
+  image: "https://s26162.pcdn.co/wp-content/uploads/2020/03/house.jpg",
   street:Faker::Address.street_address, 
   city:Faker::Address.city, 
   zip:Faker::Address.zip,
   state:"Utah"
 )
 Visit.create(house_id: y.id, costume_id: mc.id)
-<<<<<<< HEAD
-end
-=======
 end
 
  
->>>>>>> c01622f9bacbae44d7a833fa967b5d8dd90fc774
