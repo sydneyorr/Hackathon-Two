@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Button, Form, Card } from 'semantic-ui-react';
 import { AuthContext } from '../../providers/AuthProvider';
+import ImageUpload from '../ImageUpload';
 
 const NewHouse = ({showForm, setShowForm}) => {
   const [city, setCity] = useState("")
@@ -48,6 +49,7 @@ const NewHouse = ({showForm, setShowForm}) => {
     <Form.Field>
       <label>Image URL</label>
       <input placeholder='Image' onChange={(e)=>setImage(e.target.value)}/>
+      <ImageUpload setImage = {setImage} />
     </Form.Field>
 
     <Button type='submit'>Submit</Button>
