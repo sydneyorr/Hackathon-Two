@@ -53,6 +53,9 @@ const NavBar = (props) => {
       <Link to={'/houses'}>
         <Menu.Item >Houses</Menu.Item>
       </Link>
+      <Link to={'/costumes'}>
+        <Menu.Item >Costumes</Menu.Item>
+      </Link>
 
     {routes && renderRoutes()}
     <Menu.Menu position="right">{RightNavItems() }</Menu.Menu>
