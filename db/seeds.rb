@@ -33,6 +33,7 @@ x=User.create(
   password:"boo2021" 
 )
 x.houses.create(
+  image: "https://image.shutterstock.com/image-photo/small-clapboard-siding-house-view-260nw-182798594.jpg",
   street:Faker::Address.street_address, 
   city:Faker::Address.city, 
   zip:Faker::Address.zip,
